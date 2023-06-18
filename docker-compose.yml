@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+  check-proxy:
+    image: aamundaray/check-proxy:1.0.0
+    container_name: check-proxy
+    restart: always
+    build:
+      context: ./check-proxy
+      dockerfile: Dockerfile
+      args:
+        CHECK_PORT: ${CHECK_PORT}
+    env_file: .env
+    ports:
+      - 443:443
