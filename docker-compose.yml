@@ -9,6 +9,7 @@ services:
       dockerfile: Dockerfile
       args:
         CHECK_PORT: ${CHECK_PORT}
+        CHECK_DOMAIN: ${CHECK_DOMAIN}
     env_file: .env
     ports:
       - 443:443

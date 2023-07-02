@@ -4,11 +4,11 @@ location /auth/ {
 
     # URI routing
     location /auth/authentication/v1/ {
-        proxy_pass http://check:${CHECK_PORT}/authentication/v1/;
+        proxy_pass http://${CHECK_DOMAIN}:${CHECK_PORT}/authentication/v1/;
     }
 
     #location /auth/health/ {
-    #    proxy_pass http://check:${CHECK_PORT}/health/;
+    #    proxy_pass http://${CHECK_DOMAIN}:${CHECK_PORT}/health/;
     #}
     
     return 404; # Catch-all
@@ -19,7 +19,7 @@ location /health/ {
     access_log /var/log/nginx/api.log main;
 
     location /health/check/ {
-        proxy_pass http://check:${CHECK_PORT}/health/check/;
+        proxy_pass http://${CHECK_DOMAIN}:${CHECK_PORT}/health/check/;
     }
     
     return 404; # Catch-all

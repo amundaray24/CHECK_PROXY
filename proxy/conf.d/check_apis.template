@@ -5,23 +5,23 @@ location /api/ {
 
     # URI routing
     location /api/holidays/v1/ {
-        proxy_pass http://check:${CHECK_PORT}/holidays/v1/;
+        proxy_pass http://${CHECK_DOMAIN}:${CHECK_PORT}/holidays/v1/;
     }
 
     location /api/office/v1/ {
-        proxy_pass http://check:${CHECK_PORT}/office/v1/;
+        proxy_pass http://${CHECK_DOMAIN}:${CHECK_PORT}/office/v1/;
     }
 
     location /api/scheduler/v1/ {
-        proxy_pass http://check:${CHECK_PORT}/scheduler/v1/;
+        proxy_pass http://${CHECK_DOMAIN}:${CHECK_PORT}/scheduler/v1/;
     }
 
     location /api/user/v1/ {
-        proxy_pass http://check:${CHECK_PORT}/user/v1/;
+        proxy_pass http://${CHECK_DOMAIN}:${CHECK_PORT}/user/v1/;
     }
 
     location /api/notification/v1/ {
-        proxy_pass http://check:${CHECK_PORT}/notification/v1/;
+        proxy_pass http://${CHECK_DOMAIN}:${CHECK_PORT}/notification/v1/;
     }
     
     return 404; # Catch-all
